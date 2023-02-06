@@ -4,12 +4,32 @@ public class Main {
 
 
     // Recursive approach
-    public static long factorial (long number) {
-        if (number == 0) {
+    public static long factorialRecursive (long number){
+        if(number == 0) {
             return 1;
         } else {
-            return (number * factorial(number - 1));
+            return (number * factorialRecursive(number - 1));
         }
+    }
+    // Iterative approach
+    public static long factorialAscendingIteration(long number){
+
+        int factorial = 1;
+
+        for(int i = 1; i<=number; i++){
+            factorial *= i;
+        }
+        return factorial;
+    }
+
+    public static long factorialDescendingIteration(long number){
+
+        int factorial = 1;
+
+        for(long i = number; i>=1; i--){
+            factorial *=i;
+        }
+        return factorial;
     }
 
     public static void main(String[] args) {
@@ -22,6 +42,6 @@ public class Main {
 
         long userInput = scanner.nextLong();
 
-        System.out.println("Factorial of " + userInput + " is: " + factorial(userInput));
+        System.out.println("Factorial of " + userInput + " is: " + factorialRecursive(userInput));
     }
 }
